@@ -3,25 +3,27 @@
 <?php $__env->startSection('content_header'); ?>
     <h1 align="center">INÍCIO</h1>
 
+
+    <!-- Class para exibir o mapa  -->
     <style>
-   .map-kennedy {
-        background-color: #fff;
-        height: 250px;
-        margin: 0;
+        .map-pontos {
+            background-color: #fff;
+            height: 250px;
+            margin: 0;
             }
     </style>   
 
 <?php $__env->stopSection(); ?>
 
+
 <?php $__env->startSection('content'); ?>
 
-
 <div class="container">         
-<div class="map-kennedy">
-
-Mapa
-
-</div>    
+    
+    <!-- Div que exibe o mapa -->
+    <div class="map-pontos">
+        Mapa
+    </div>    
 
 <br>
 
