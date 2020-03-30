@@ -21,4 +21,11 @@ Route::get('/', 'MainController@index');
 
 Auth::routes();
 
+
+Route::get('/station', 'StationController@index');
+
+Route::get('/addStation', 'StationController@create');
+
+Route::get('/saveStation', 'StationController@store');
+
 Route::get('/home', 'HomeController@index')->name('home');
