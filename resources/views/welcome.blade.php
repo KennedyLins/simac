@@ -1,4 +1,75 @@
-<!DOCTYPE html>
+
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1 align="center">INÍCIO</h1>
+
+    <style>
+   .map-kennedy {
+        background-color: #fff;
+        height: 250px;
+        margin: 0;
+            }
+    </style>   
+
+@stop
+
+@section('content')
+
+
+<div class="container">         
+<div class="map-kennedy">
+
+Mapa
+
+</div>    
+
+<br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+@stop
+
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -6,11 +77,11 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!- Fonts -->
+       <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet"> -->
 
         <!-- Styles -->
-        <style>
+      <!--  <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -98,3 +169,4 @@
         </div>
     </body>
 </html>
+-->
