@@ -19,16 +19,16 @@
       <th scope="col">Nome da Estação</th>
       <th scope="col">Cód. da Estação</th>
       <th scope="col">Rio</th>
-      <th scope="col">Nível de Pré-Alerta</th>
-      <th scope="col">Nível de Alerta</th>
-      <th scope="col">Nível de Inundação</th>
+      <th scope="col">Nível de Pré-Alerta (cm)</th>
+      <th scope="col">Nível de Alerta (cm) </th>
+      <th scope="col">Nível de Inundação (cm) </th>
       <th scope="col">Configurações</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($hidro_stations as $hidro_station) 
     <tr>
-      <th scope="row">{{$hidro_station->nameStation}}</th>
+      <td>{{$hidro_station->nameStation}}</td>
       <td>{{$hidro_station->idStation}}</td>
       <td>{{$hidro_station->river}}</td>
       <td>{{$hidro_station->preAlertLevel}}</td>
