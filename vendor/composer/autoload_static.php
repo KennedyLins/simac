@@ -117,8 +117,6 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'J' => 
         array (
             'JeroenNoten\\LaravelAdminLte\\' => 28,
-            'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
-            'JakubOnderka\\PhpConsoleColor\\' => 29,
         ),
         'I' => 
         array (
@@ -362,14 +360,6 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'JeroenNoten\\LaravelAdminLte\\' => 
         array (
             0 => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src',
-        ),
-        'JakubOnderka\\PhpConsoleHighlighter\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
-        ),
-        'JakubOnderka\\PhpConsoleColor\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
         ),
         'Illuminate\\Foundation\\Auth\\' => 
         array (
@@ -1598,6 +1588,7 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Illuminate\\Contracts\\Container\\ContextualBindingBuilder' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Container/ContextualBindingBuilder.php',
         'Illuminate\\Contracts\\Cookie\\Factory' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Cookie/Factory.php',
         'Illuminate\\Contracts\\Cookie\\QueueingFactory' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Cookie/QueueingFactory.php',
+        'Illuminate\\Contracts\\Database\\Eloquent\\Castable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Database/Eloquent/Castable.php',
         'Illuminate\\Contracts\\Database\\Eloquent\\CastsAttributes' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Database/Eloquent/CastsAttributes.php',
         'Illuminate\\Contracts\\Database\\Eloquent\\CastsInboundAttributes' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Database/Eloquent/CastsInboundAttributes.php',
         'Illuminate\\Contracts\\Database\\Events\\MigrationEvent' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Contracts/Database/Events/MigrationEvent.php',
@@ -2196,6 +2187,7 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Illuminate\\Support\\Fluent' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Fluent.php',
         'Illuminate\\Support\\HigherOrderCollectionProxy' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/HigherOrderCollectionProxy.php',
         'Illuminate\\Support\\HigherOrderTapProxy' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/HigherOrderTapProxy.php',
+        'Illuminate\\Support\\HigherOrderWhenProxy' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/HigherOrderWhenProxy.php',
         'Illuminate\\Support\\HtmlString' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/HtmlString.php',
         'Illuminate\\Support\\InteractsWithTime' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/InteractsWithTime.php',
         'Illuminate\\Support\\LazyCollection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/LazyCollection.php',
@@ -2297,9 +2289,6 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
-        'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
-        'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
-        'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',
         'JeroenNoten\\LaravelAdminLte\\AdminLte' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/AdminLte.php',
         'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/AdminLteServiceProvider.php',
         'JeroenNoten\\LaravelAdminLte\\Console\\AdminLteInstallCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/AdminLteInstallCommand.php',
@@ -2751,6 +2740,8 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'NunoMaduro\\Collision\\Adapters\\Phpunit\\TestResult' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/TestResult.php',
         'NunoMaduro\\Collision\\Adapters\\Phpunit\\Timer' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Timer.php',
         'NunoMaduro\\Collision\\ArgumentFormatter' => __DIR__ . '/..' . '/nunomaduro/collision/src/ArgumentFormatter.php',
+        'NunoMaduro\\Collision\\ConsoleColor' => __DIR__ . '/..' . '/nunomaduro/collision/src/ConsoleColor.php',
+        'NunoMaduro\\Collision\\Contracts\\Adapters\\Phpunit\\HasPrintableTestCaseName' => __DIR__ . '/..' . '/nunomaduro/collision/src/Contracts/Adapters/Phpunit/HasPrintableTestCaseName.php',
         'NunoMaduro\\Collision\\Contracts\\Adapters\\Phpunit\\Listener' => __DIR__ . '/..' . '/nunomaduro/collision/src/Contracts/Adapters/Phpunit/Listener.php',
         'NunoMaduro\\Collision\\Contracts\\ArgumentFormatter' => __DIR__ . '/..' . '/nunomaduro/collision/src/Contracts/ArgumentFormatter.php',
         'NunoMaduro\\Collision\\Contracts\\Handler' => __DIR__ . '/..' . '/nunomaduro/collision/src/Contracts/Handler.php',
@@ -2986,6 +2977,7 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'PHPUnit\\Util\\TestDox\\XmlResultPrinter' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/TestDox/XmlResultPrinter.php',
         'PHPUnit\\Util\\TextTestListRenderer' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/TextTestListRenderer.php',
         'PHPUnit\\Util\\Type' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Type.php',
+        'PHPUnit\\Util\\VersionComparisonOperator' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/VersionComparisonOperator.php',
         'PHPUnit\\Util\\XdebugFilterScriptGenerator' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/XdebugFilterScriptGenerator.php',
         'PHPUnit\\Util\\Xml' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Xml.php',
         'PHPUnit\\Util\\XmlTestListRenderer' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/XmlTestListRenderer.php',
@@ -3646,6 +3638,7 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Psy\\Exception\\RuntimeException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/RuntimeException.php',
         'Psy\\Exception\\ThrowUpException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/ThrowUpException.php',
         'Psy\\Exception\\TypeErrorException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/TypeErrorException.php',
+        'Psy\\Exception\\UnexpectedTargetException' => __DIR__ . '/..' . '/psy/psysh/src/Exception/UnexpectedTargetException.php',
         'Psy\\ExecutionClosure' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionClosure.php',
         'Psy\\ExecutionLoopClosure' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoopClosure.php',
         'Psy\\ExecutionLoop\\AbstractListener' => __DIR__ . '/..' . '/psy/psysh/src/ExecutionLoop/AbstractListener.php',
@@ -3675,6 +3668,7 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Psy\\Reflection\\ReflectionConstant_' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionConstant_.php',
         'Psy\\Reflection\\ReflectionLanguageConstruct' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionLanguageConstruct.php',
         'Psy\\Reflection\\ReflectionLanguageConstructParameter' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionLanguageConstructParameter.php',
+        'Psy\\Reflection\\ReflectionNamespace' => __DIR__ . '/..' . '/psy/psysh/src/Reflection/ReflectionNamespace.php',
         'Psy\\Shell' => __DIR__ . '/..' . '/psy/psysh/src/Shell.php',
         'Psy\\Sudo' => __DIR__ . '/..' . '/psy/psysh/src/Sudo.php',
         'Psy\\Sudo\\SudoVisitor' => __DIR__ . '/..' . '/psy/psysh/src/Sudo/SudoVisitor.php',
@@ -3979,6 +3973,7 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Symfony\\Component\\Console\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/console/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Console\\Exception\\InvalidOptionException' => __DIR__ . '/..' . '/symfony/console/Exception/InvalidOptionException.php',
         'Symfony\\Component\\Console\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/console/Exception/LogicException.php',
+        'Symfony\\Component\\Console\\Exception\\MissingInputException' => __DIR__ . '/..' . '/symfony/console/Exception/MissingInputException.php',
         'Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException' => __DIR__ . '/..' . '/symfony/console/Exception/NamespaceNotFoundException.php',
         'Symfony\\Component\\Console\\Exception\\RuntimeException' => __DIR__ . '/..' . '/symfony/console/Exception/RuntimeException.php',
         'Symfony\\Component\\Console\\Formatter\\OutputFormatter' => __DIR__ . '/..' . '/symfony/console/Formatter/OutputFormatter.php',
@@ -4665,7 +4660,14 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'XMLSchema' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'nusoap_base' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_client' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_fault' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_parser' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_server' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'nusoap_xmlschema' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
@@ -4738,7 +4740,14 @@ class ComposerStaticInit375ab955c75189f907376b723cacd215
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'soap_fault' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_parser' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_server' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soap_transport_http' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soapclient' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
+        'soapval' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
+        'wsdl' => __DIR__ . '/..' . '/econea/nusoap/src/nusoap.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
