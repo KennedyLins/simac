@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('adminlte_css'); ?>
     <?php echo $__env->yieldPushContent('css'); ?>
     <?php echo $__env->yieldContent('css'); ?>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\HidroStation;
-use SoapClient;
-use SimpleXMLElement;
+use Carbon\Carbon;
+
 
 class MainController extends Controller
 {
@@ -20,27 +20,49 @@ class MainController extends Controller
     public function index()
     {       
 
+
+        //Criando um objeto da classe HidroStation
+        $stations = new HidroStation;
+        $stations = $stations::all();
+
+        //Criando um objeto da classe NuSoap
         $client = new \nusoap_client('http://telemetriaws1.ana.gov.br/ServiceANA.asmx?wsdl', 'wsdl');
         $client->soap_defencoding = 'UTF-8';
         $client->decode_utf8 = FALSE;
 
-        $data = [
-            'codEstacao' => '39145000',
-            'dataInicio' => '09/04/2020',
-            'dataFim'    => '10/04/2020',
-        ];
+        //Criando um objeto da classe Carbon para trabalhar com datas
+        $carbon =  Carbon::now();
 
-        // Calls
-        $result   = $client->call('DadosHidrometeorologicos', $data);
-        $contents = $result ['DadosHidrometeorologicosResult'] ['diffgram'] ['DocumentElement'] ['DadosHidrometereologicos'];
-    
-        echo $contents [4] ['Nivel'];
-       /*foreach ($cont ents as $content){
-           
-           $nivel = $content ['Nivel'];
-           //dd($nivel)."<br>";
-           echo $nivel."<br>";
-       }*/
+        
+        foreach ($stations as $station){            
+
+            $station = $station->idStation;
+
+            $params = [
+            'codEstacao' => $station,
+            'dataInicio' => $carbon->format('d/m/Y'),
+            'dataFim'    => $carbon->format('d/m/Y'),
+            ];
+
+             // Calls
+            $result   = $client->call('DadosHidrometeorologicos', $params);            
+
+            $contents = $result ['DadosHidrometeorologicosResult'] ['diffgram'] ['DocumentElement'] ;
+
+            //$contents = $result ['DadosHidrometeorologicosResult'];
+
+            //return $contents [0] ['Nivel'];
+
+            //echo $station."<br>";
+            //dd($contents);
+            //var_dump($contents);
+            //echo json_encode($contents);
+            //dd($contents);
+
+            //
+        }
+
+            
 
     }
        
