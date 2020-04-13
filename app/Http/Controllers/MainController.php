@@ -53,7 +53,7 @@ class MainController extends Controller
 
             //return $contents [0] ['Nivel'];
 
-            //echo $station."<br>";
+            echo $station."<br>";
             //dd($contents);
             //var_dump($contents);
             //echo json_encode($contents);
@@ -61,8 +61,7 @@ class MainController extends Controller
 
             //
         }
-
-            
+           
 
     }
        
