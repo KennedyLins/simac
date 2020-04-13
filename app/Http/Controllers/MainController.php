@@ -20,49 +20,31 @@ class MainController extends Controller
     public function index()
     {       
 
-        /*try {
-            self::setWsdl('http://telemetriaws1.ana.gov.br/ServiceANA.asmx?wsdl');
-            $this->service = InstanceSoapClient::init();
-
-            $cities = $this->service->DadosHidrometeorologicos(['codEstacao' => '39145000', 'dataInicio' => '09/04/2020', 'dataFim' => '09/04/2020',]);
-
-            $ciudades = $this->loadXmlStringAsArray($cities->DadosHidrometeorologicosResult);
-            dd($ciudades);
-        }
-        catch(\Exception $e) {
-            return $e->getMessage();
-        }
-
-
-        //dd($result);*/
-
-
-
-        //->DadosHidrometeorologicosResult
-
         $client = new \nusoap_client('http://telemetriaws1.ana.gov.br/ServiceANA.asmx?wsdl', 'wsdl');
         $client->soap_defencoding = 'UTF-8';
         $client->decode_utf8 = FALSE;
 
         $data = [
-
             'codEstacao' => '39145000',
             'dataInicio' => '09/04/2020',
-            'dataFim'    => '09/04/2020',
+            'dataFim'    => '10/04/2020',
         ];
 
         // Calls
-        $result = $client->call('DadosHidrometeorologicos', $data);
-        $body   = $client->getHTTPBody($result);
-        //$content = $result->DadosHidrometeorologicosResult;
-        //$dados = 
-
-        dd($body);
-       // dd($body);
-
+        $result   = $client->call('DadosHidrometeorologicos', $data);
+        $contents = $result ['DadosHidrometeorologicosResult'] ['diffgram'] ['DocumentElement'] ['DadosHidrometereologicos'];
+    
+        echo $contents [4] ['Nivel'];
+       /*foreach ($cont ents as $content){
+           
+           $nivel = $content ['Nivel'];
+           //dd($nivel)."<br>";
+           echo $nivel."<br>";
+       }*/
 
     }
-
+       
+    
     /**
      * Show the form for creating a new resource.
      *
