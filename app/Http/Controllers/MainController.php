@@ -16,10 +16,9 @@ class MainController extends Controller
      * @return \Illuminate\Http\Response
 
      */
-    
+
     public function index()
     {       
-
 
         //Criando um objeto da classe HidroStation
         $stations = new HidroStation;
@@ -32,7 +31,6 @@ class MainController extends Controller
 
         //Criando um objeto da classe Carbon para trabalhar com datas
         $carbon =  Carbon::now();
-
         
         foreach ($stations as $station){            
 
@@ -43,17 +41,23 @@ class MainController extends Controller
             'dataInicio' => $carbon->format('d/m/Y'),
             'dataFim'    => $carbon->format('d/m/Y'),
             ];
+            
 
-             // Calls
-            $result   = $client->call('DadosHidrometeorologicos', $params);            
+            var_dump($params);
+            
+            foreach ($params as $param) {
+                
+                $result   = $client->call('DadosHidrometeorologicos', $param);
+                $contents = $result ['DadosHidrometeorologicosResult'] ['diffgram'] ['DocumentElement'];
 
-            $contents = $result ['DadosHidrometeorologicosResult'] ['diffgram'] ['DocumentElement'] ;
+                //echo $param."<br>";
 
-            //$contents = $result ['DadosHidrometeorologicosResult'];
+            }
 
+            
             //return $contents [0] ['Nivel'];
 
-            echo $station."<br>";
+            //echo $station."<br>";
             //dd($contents);
             //var_dump($contents);
             //echo json_encode($contents);
