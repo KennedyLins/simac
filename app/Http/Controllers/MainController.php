@@ -23,6 +23,7 @@ class MainController extends Controller
         //Criando um objeto da classe HidroStation
         $stations = new HidroStation;
         $stations = $stations::all();
+        
 
         //Criando um objeto da classe NuSoap
         $client = new \nusoap_client('http://telemetriaws1.ana.gov.br/ServiceANA.asmx?wsdl', 'wsdl');
@@ -31,45 +32,38 @@ class MainController extends Controller
 
         //Criando um objeto da classe Carbon para trabalhar com datas
         $carbon =  Carbon::now();
-        
+
         foreach ($stations as $station){            
 
-            $station = $station->idStation;
+            $idStation = $station->idStation;
+             
+            $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
 
-            $params = [
-            'codEstacao' => $station,
-            'dataInicio' => $carbon->format('d/m/Y'),
-            'dataFim'    => $carbon->format('d/m/Y'),
-            ];
-            
 
-            var_dump($params);
-            
-            foreach ($params as $param) {
-                
-                $result   = $client->call('DadosHidrometeorologicos', $param);
-                $contents = $result ['DadosHidrometeorologicosResult'] ['diffgram'] ['DocumentElement'];
+                foreach ($results as $result) {              
 
-                //echo $param."<br>";
+                    $contents = $result ['diffgram'] ['DocumentElement']; 
 
-            }
+                    if(array_key_exists('ErrorTable', $contents)){
 
-            
-            //return $contents [0] ['Nivel'];
+                        $nivel = "Nível não coletado";
+                        
+                    }else{
 
-            //echo $station."<br>";
-            //dd($contents);
-            //var_dump($contents);
-            //echo json_encode($contents);
-            //dd($contents);
+                        $nivel = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
 
-            //
+                        if(empty($nivel)){
+
+                            $nivel = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
+                        }
+
+                    }                                  
+                } 
+
+                echo $nivel."<br>";
         }
-           
-
     }
-       
-    
+   
     /**
      * Show the form for creating a new resource.
      *
