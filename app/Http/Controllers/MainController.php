@@ -21,8 +21,8 @@ class MainController extends Controller
     {       
 
         //Criando um objeto da classe HidroStation
-        $stations = new HidroStation;
-        $stations = $stations::all();
+        $hidro_stations = new HidroStation;
+        $hidro_stations = $hidro_stations::all();
         
 
         //Criando um objeto da classe NuSoap
@@ -33,9 +33,15 @@ class MainController extends Controller
         //Criando um objeto da classe Carbon para trabalhar com datas
         $carbon =  Carbon::now();
       
-        foreach ($stations as $station){            
+        foreach ($hidro_stations as $hidro_station){            
 
-            $idStation = $station->idStation;
+            $idStation      = $hidro_station->idStation;
+            $nameStation    = $hidro_station->nameStation;
+            $river          = $hidro_station->river;
+            $preAlertLevel  = $hidro_station->preAlertLevel;
+            $alertLevel     = $hidro_station->alertLevel;
+            $floodLevel     = $hidro_station->floodLevel;
+
              
             $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
 
@@ -45,21 +51,23 @@ class MainController extends Controller
 
                     if(array_key_exists('ErrorTable', $contents)){
 
-                        $nivel = "Nível não coletado";
-                        
+                        $niveis = "Nível não coletado";
+
                     }else{
 
-                        $nivel = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                        $niveis = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
 
-                        if(empty($nivel)){
+                        if(empty($niveis)){
 
-                            $nivel = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
+                            $niveis = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
                         }
 
                     }                                  
                 } 
+            
+                //echo gettype($contents);
+            return view('station.monitorStation', compact('hidro_stations'));
 
-                echo $nivel."<br>";
         }
     }
    
