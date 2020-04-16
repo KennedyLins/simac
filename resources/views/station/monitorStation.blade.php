@@ -31,7 +31,7 @@
       <td>{{$hidro_station->idStation}}</td>
       <td>{{$hidro_station->nameStation}}</td>
       <td>{{$hidro_station->river}}</td>      
-      <td></td>
+      <td>{{$hidro_station->levelNow}}</td>
       <td>{{$hidro_station->preAlertLevel}}</td>
       <td>{{$hidro_station->alertLevel}}</td>
       <td>{{$hidro_station->floodLevel}}</td>

@@ -64,15 +64,7 @@ class StationController extends Controller
 
         $hidro_station->save();
         
-        //<script>alert('Email enviado com Sucesso!);</script>;
-        
         return redirect('/addStation')->with('status', 'Estação cadastrada com sucesso!');
-
-        /*@if(session('status'))
-            <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif*/
 
     }
 

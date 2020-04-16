@@ -39,36 +39,44 @@ class MainController extends Controller
             $idStation      = $hidro_station->idStation;
             $nameStation    = $hidro_station->nameStation;
             $river          = $hidro_station->river;
+            $levelNow       = $hidro_station->levelNow;
             $preAlertLevel  = $hidro_station->preAlertLevel;
             $alertLevel     = $hidro_station->alertLevel;
             $floodLevel     = $hidro_station->floodLevel;
+            
 
              
             $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
 
 
-                foreach ($results as $result) {              
+            foreach ($results as $result){              
 
-                    $contents = $result ['diffgram'] ['DocumentElement']; 
+                $contents = $result ['diffgram'] ['DocumentElement']; 
 
-                    if(array_key_exists('ErrorTable', $contents)){
+                if(array_key_exists('ErrorTable', $contents)){
 
-                        $niveis = "Nível não coletado";
+                        $nivel = "Problema na PCD";
 
-                    }else{
+                }else{
 
-                        $niveis = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                    $nivel = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                    if(empty($nivel)){
+                        $nivel = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
+                    }
+                }
 
-                        if(empty($niveis)){
-
-                            $niveis = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
-                        }
-
-                    }                                  
-                } 
+                $hidro_station->levelNow = $nivel;
+                //echo $nivel."<br>";
+                
+                                    
+            } 
+                $hidro_station->levelNow->save();
+            //echo gettype($hidro_station->levelNow);
+            /* $hidro_station->where('idStation', $idStation)->
+                                update(['levelNow' => $nivel]);  */
             
-                //echo gettype($contents);
-            return view('station.monitorStation', compact('hidro_stations'));
+            
+            //return view('station.monitorStation', compact('hidro_stations'));
 
         }
     }
