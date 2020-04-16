@@ -28,9 +28,8 @@ class StationController extends Controller
             $preAlertLevel  = $hidro_station->preAlertLevel;
             $alertLevel     = $hidro_station->alertLevel;
             $floodLevel     = $hidro_station->floodLevel;
-
-           //echo $nameStation.$idStation.$river.$preAlertLevel.$alertLevel.$floodLevel;
-            return view('station.index', compact('hidro_stations'));
+           
+            return view('station.listStation', compact('hidro_stations'));
         }
             
     }
@@ -65,7 +64,15 @@ class StationController extends Controller
 
         $hidro_station->save();
         
-        return "ok";
+        //<script>alert('Email enviado com Sucesso!);</script>;
+        
+        return redirect('/addStation')->with('status', 'Estação cadastrada com sucesso!');
+
+        /*@if(session('status'))
+            <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif*/
 
     }
 
