@@ -55,7 +55,7 @@ class StationController extends Controller
      */
     public function store(Request $request, HidroStation $hidro_station)
     {
-        $hidro_station->nameStation    = $request->nameStation;
+        $hidro_station->nameStation   = $request->nameStation;
         $hidro_station->idStation     = $request->idStation;
         $hidro_station->river         = $request->river;
         $hidro_station->preAlertLevel = $request->preAlertLevel;

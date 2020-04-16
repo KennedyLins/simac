@@ -13,8 +13,8 @@
 
 <div class="container">         
 
-<table class="table table-bordered">
-  <thead>
+<table class="table  table-hover ">
+  <thead class="thead-light">
     <tr>
       <th scope="col" align="center">Cód. Estação</th>
       <th scope="col" align="center">Local</th>
@@ -37,7 +37,6 @@
       <td>{{$hidro_station->floodLevel}}</td>
     </tr>
     @endforeach
-
 
 
   </tbody>
