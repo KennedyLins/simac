@@ -36,14 +36,8 @@ class MainController extends Controller
       
         foreach ($hidro_stations as $hidro_station){            
 
-            $idStation      = $hidro_station->idStation;
-            $nameStation    = $hidro_station->nameStation;
-            $river          = $hidro_station->river;
-            $levelNow       = $hidro_station->levelNow;
-            $preAlertLevel  = $hidro_station->preAlertLevel;
-            $alertLevel     = $hidro_station->alertLevel;
-            $floodLevel     = $hidro_station->floodLevel;
-            
+            $idStation = $hidro_station->idStation;
+            $levelNow  = $hidro_station->levelNow;
 
              
             $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
@@ -55,30 +49,44 @@ class MainController extends Controller
 
                 if(array_key_exists('ErrorTable', $contents)){
 
-                        $nivel = "Problema na PCD";
-
+                        $niveis = "Problema na PCD";
+                        
                 }else{
 
-                    $nivel = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
-                    if(empty($nivel)){
-                        $nivel = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
+                    $niveis = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                    
+                    if(empty($niveis)){
+                        $niveis = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
                     }
-                }
+                    
+                }             
+            }           
 
-                $hidro_station->levelNow = $nivel;
-                //echo $nivel."<br>";
-                
-                                    
-            } 
-                $hidro_station->levelNow->save();
-            //echo gettype($hidro_station->levelNow);
-            /* $hidro_station->where('idStation', $idStation)->
-                                update(['levelNow' => $nivel]);  */
+            $hidro_station->levelNow = $niveis;
+            $hidro_station->save();
             
-            
-            //return view('station.monitorStation', compact('hidro_stations'));
+            return view('station.monitorStation', compact('hidro_stations'));
 
         }
+
+
+       /* $idStation = "39431000";
+
+        $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
+
+        $contents = $results ['diffgram'] ['DocumentElement']; 
+
+        $niveis = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+
+        dd($niveis);*/
+
+
+
+
+
+
+
+        
     }
    
     /**
