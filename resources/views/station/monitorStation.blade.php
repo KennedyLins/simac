@@ -23,30 +23,30 @@
 </head>
 
 <body>
-
 <table class="container">
   <thead>
     <tr>
-      <th><h1>Cód. Estação</h1></th>
       <th><h1>Local</h1></th>
       <th><h1>Rio</h1></th>
       <th><h1>Nível <br> Atual</h1></th>
       <th><h1>Nível <br> Pré-alerta (cm)</h1></th>
       <th><h1>Nível <br> Alerta (cm) </h1></th>
       <th><h1>Nível <br> Inundação (cm) </h1></th>
+      <th><h1>Cor</h1></th>
     </tr>
   </thead>
 
   <tbody>
+    
     @foreach ($hidro_stations as $hidro_station) 
     <tr>
-      <td>{{$hidro_station->idStation}}</td>
       <td>{{$hidro_station->nameStation}}</td>
       <td>{{$hidro_station->river}}</td>      
       <td>{{$hidro_station->levelNow}}</td>
       <td>{{$hidro_station->preAlertLevel}}</td>
       <td>{{$hidro_station->alertLevel}}</td>
       <td>{{$hidro_station->floodLevel}}</td>
+      <td>{{$alertColor}}</td>
     </tr>
       @endforeach
   </tbody>

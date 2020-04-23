@@ -37,7 +37,6 @@ class MainController extends Controller
         foreach ($hidro_stations as $hidro_station){            
 
             $idStation = $hidro_station->idStation;
-            $levelNow  = $hidro_station->levelNow;
 
              
             $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
@@ -46,6 +45,8 @@ class MainController extends Controller
             foreach ($results as $result){              
 
                 $contents = $result ['diffgram'] ['DocumentElement']; 
+
+                //dd($contents);
 
                 if(array_key_exists('ErrorTable', $contents)){
 
@@ -64,27 +65,36 @@ class MainController extends Controller
 
             $hidro_station->levelNow = $niveis;
             $hidro_station->save();
+
+
+            $levelNow    = $hidro_station->levelNow;
+            $preAlert    = $hidro_station->preAlertLevel;
+            $alert       = $hidro_station->alertLevel;
+            $floodLevel  = $hidro_station->floodLevel;
             
-            return view('station.monitorStation', compact('hidro_stations'));
+            
+            if ($levelNow >= $preAlert){
+
+                $alertColor = 'preAlert';
+
+            }elseif ($levelNow >= $alert) {
+                
+                $alertColor = 'alert';
+
+            }elseif ($levelNow >= $floodLevel) {
+                
+                $alertColor = 'floodAlert';  
+                              
+            }else{
+
+                $alertColor = '';
+            }
+
+            
+
+            return view('station.monitorStation', compact('hidro_stations', 'alertColor'));
 
         }
-
-
-       /* $idStation = "39431000";
-
-        $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
-
-        $contents = $results ['diffgram'] ['DocumentElement']; 
-
-        $niveis = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
-
-        dd($niveis);*/
-
-
-
-
-
-
 
         
     }
