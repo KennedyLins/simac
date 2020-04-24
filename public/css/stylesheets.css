@@ -1,13 +1,13 @@
 
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=arial);
 
 body {
   font-family:font:0.95em arial, sans-serif;
   /*font-family: 'Open Sans', sans-serif;*/
   font-weight: 300;
   line-height: 1.42em;
-  color:#6C7B8B;
+  color:#6C7B8B; /* Fonte da tabela, com exceção da primeira coluna*/
   background-color:#E6E6E6;
 }
 
@@ -45,7 +45,7 @@ h2 a {
 	  font-weight: bold;
 	  font-size: 1em;
   text-align: left;
-  color: #185875;
+  color: #185875; /*Fonte do cabeçalho*/
 }
 
 .container td {
@@ -73,16 +73,16 @@ h2 a {
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
-	  background-color: #F0FFFF;   /*Cor: Azure1*/
+	  background-color: #FFFAFA;   /*Cor: Azure1*/
 }
 
 /* Background-color of the even rows */
 .container tr:nth-child(even) {
-	  background-color: #E0EEEE;
+	  background-color: #FFFAFA;
 }
 
 .container th {
-	  background-color: #C1CDCD; /* Cabeçalho da tabela*/
+	  background-color: #FFFAFA; /* Cabeçalho da tabela*/
 }
 
 .container td:first-child { color: #185875; } /* Primeira coluna de cada linha*/
