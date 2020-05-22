@@ -31,9 +31,9 @@ class MainController extends Controller
         $client->decode_utf8 = FALSE;
 
         //Criando um objeto da classe Carbon para trabalhar com datas
-        $carbon =  Carbon::now();
+        $carbon =  Carbon::now();              
 
-      
+
         foreach ($hidro_stations as $hidro_station){            
 
             $idStation = $hidro_station->idStation;
@@ -46,7 +46,6 @@ class MainController extends Controller
 
                 $contents = $result ['diffgram'] ['DocumentElement']; 
 
-                //dd($contents);
 
                 if(array_key_exists('ErrorTable', $contents)){
 
@@ -54,51 +53,34 @@ class MainController extends Controller
                         
                 }else{
 
-                    $niveis = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                    $niveis     = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                    $dataHoraColeta = $contents ['DadosHidrometereologicos'] [0] ['DataHora'];
                     
-                    if(empty($niveis)){
-                        $niveis = $contents ['DadosHidrometereologicos'] [1] ['Nivel'];
-                    }
-                    
-                }             
-            }           
+                    if ($niveis == ""){
 
-            $hidro_station->levelNow = $niveis;
+                        $niveis = "Nível indisponível";
+                    }
+                      
+                }
+                    
+            }
+                 
+            $dataHoraColeta = Carbon::parse($dataHoraColeta);
+            $dataColeta     = $dataHoraColeta->format('d/m/Y');
+            $horaColeta     = $dataHoraColeta->format('H:i');
+
+            //echo $dataColeta . "-". $horaColeta;
+
+            $hidro_station->levelNow    = $niveis;
+            $hidro_station->dataColeta  = $dataColeta;
+            $hidro_station->horaColeta  = $horaColeta;
             $hidro_station->save();
 
-
-            $levelNow    = $hidro_station->levelNow;
-            $preAlert    = $hidro_station->preAlertLevel;
-            $alert       = $hidro_station->alertLevel;
-            $floodLevel  = $hidro_station->floodLevel;
-            
-            
-            if ($levelNow >= $preAlert){
-
-                $alertColor = 'preAlert';
-
-            }elseif ($levelNow >= $alert) {
-                
-                $alertColor = 'alert';
-
-            }elseif ($levelNow >= $floodLevel) {
-                
-                $alertColor = 'floodAlert';  
-                              
-            }else{
-
-                $alertColor = '';
-            }
-
-            
-
-            return view('station.monitorStation', compact('hidro_stations', 'alertColor'));
-
         }
+            return view('station.monitorStation', compact('hidro_stations'));
 
-        
-    }
-   
+    }  
+            
     /**
      * Show the form for creating a new resource.
      *

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/new', function () {
-    return view('monitor-new');
-});*/
+Route::get('/new', function () {
+    return view('monitor2');
+});
 
 Route::get('/', 'MainController@index');
 
