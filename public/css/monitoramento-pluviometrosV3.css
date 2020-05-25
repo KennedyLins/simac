@@ -1,0 +1,143 @@
+body {
+background-image: url("../img/fundo-azul.png");
+background-repeat: no-repeat;
+background-attachment: fixed;    
+background-size: 100% 100%;
+}
+
+.border{
+border-style: solid;
+border-color: #91bde7;
+
+}
+
+.content{
+background-color: #fff;
+width: 815px;
+height:100%;
+margin: auto;
+margin-top: 50px;
+}
+
+.img{
+width: 100%;
+height: auto;
+}
+
+.titulo{
+font-size:3ex;
+text-align: center;	
+margin-top: 10px;
+}
+
+body{
+font:x-small arial,helvetica,freesans,sans-serif;
+font-size:1.25ex;	
+}
+
+body table{
+font:x-small arial,helvetica,freesans,sans-serif;
+font-size:3ex;	
+}
+
+.listaRios{
+margin-top: 0.5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 5px;
+text-align: center;
+
+}
+
+#gridDadosRioId{
+	
+	width: 100%;
+	border: solid 2px #c9cdca;
+}	
+
+.TituloGrid{
+	border: solid 1px #c9cdca;
+	font-family:font:0.95em arial, sans-serif;
+	text-align: center;	
+	font-weight: bold;
+	background-color: #e1e3e2;
+}
+.gridDados{
+	
+	border: dotted 1px #c9cdca;
+	font-family:font:0.95em arial, sans-serif;
+	text-align: center;
+	font-weight: bold;
+	vertical-align: middle;
+	padding: 10px;
+}
+
+th{
+	font-weight: bold;
+	padding: 1px;
+	vertical-align: middle;
+}
+
+
+.NivelNormal{
+	
+	color: #000000;
+}
+
+.NivelPreAlerta{
+	
+	color: #000000;
+	background-color: #f8f885;
+}
+
+.NivelAlerta{
+	
+	color: #000000;
+	background-color: #ec9513;
+}
+
+
+.NivelInundacao{
+	
+	color: #000000;
+	background-color: #ff0202;
+}
+
+#nivelPreAlertaId{
+	
+	width: 20px;
+	height: 15px;
+	background-color: #f8f885;
+	border-radius: 5px;
+}
+
+#nivelAlertaId{
+	
+	width: 20px;
+	height: 15px;
+	background-color: #ec9513;
+	border-radius: 5px;
+}
+
+#nivelInundacaoId{
+	
+	width: 20px;
+	height: 15px;
+	background-color: #ff0202;
+	border-radius: 5px;
+}
+
+
+#idpesquisa{
+	
+	background-color: #179bdb;
+	padding: 10px;
+	border: dotted 2px #bfcac9;
+	border-radius: 5px;
+	font-family:font:0.95em arial, sans-serif;
+	font-weight: bold;
+}
+
+.colunaAtual{
+	background-color: #91bde7;
+}

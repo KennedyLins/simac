@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "909e8f80b2e3bdd61fe313f752f4a709",
+    "content-hash": "5c743c3ac7c3e40f439af514c3ce3e88",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -360,16 +360,16 @@
         },
         {
             "name": "econea/nusoap",
-            "version": "v0.9.6",
+            "version": "v0.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pwnlabs/nusoap.git",
-                "reference": "84ac83bc884c477e6614fe8cbe2bf8858b5f75ff"
+                "reference": "45fa816515fbfc692619493836d674c8aad323d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pwnlabs/nusoap/zipball/84ac83bc884c477e6614fe8cbe2bf8858b5f75ff",
-                "reference": "84ac83bc884c477e6614fe8cbe2bf8858b5f75ff",
+                "url": "https://api.github.com/repos/pwnlabs/nusoap/zipball/45fa816515fbfc692619493836d674c8aad323d1",
+                "reference": "45fa816515fbfc692619493836d674c8aad323d1",
                 "shasum": ""
             },
             "require": {
@@ -400,13 +400,18 @@
                     "homepage": "https://f3l1x.io"
                 }
             ],
-            "description": "NuSOAP fixed for PHP 5.4 - 7.1",
+            "description": "Fixed NuSOAP for PHP 5.6 - 7.3",
             "homepage": "https://github.com/econea/nusoap",
             "keywords": [
+                "client",
+                "http",
                 "nusoap",
-                "soap"
+                "php",
+                "soap",
+                "transport",
+                "xml"
             ],
-            "time": "2018-04-19T05:28:20+00:00"
+            "time": "2020-04-15T16:04:27+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -5615,6 +5620,5 @@
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

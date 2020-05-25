@@ -54,7 +54,9 @@ class MainController extends Controller
                 }else{
 
                     $niveis     = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+
                     $dataHoraColeta = $contents ['DadosHidrometereologicos'] [0] ['DataHora'];
+
                     
                     if ($niveis == ""){
 
@@ -77,7 +79,9 @@ class MainController extends Controller
             $hidro_station->save();
 
         }
-            return view('station.monitorStation', compact('hidro_stations'));
+            return view('station.monitorStationV3', compact('hidro_stations'));
+        //return view('station.monitorStationV3');
+
 
     }  
             
