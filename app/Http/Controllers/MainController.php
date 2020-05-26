@@ -38,29 +38,13 @@ class MainController extends Controller
             $idStation = $hidro_station->idStation;
 
              
-            $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => "39433000", 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
+            $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
 
 
             foreach ($results as $result){              
 
                 $contents   = $result ['diffgram'] ['DocumentElement'];
                           
-
-                /*if(array_key_exists(['DadosHidrometereologicos'][0];, $contents)){
-
-                    $niveis         = $dadosHidro['Nivel'];
-                    $dataHoraColeta = $dadosHidro['DataHora'];
-                    if ($niveis == ""){
-
-                        $niveis = "Nível indisponível";
-                    }    
-                }else{
-
-                    $niveis = "Problema na PCD";
-                    $dataHoraColeta = $carbon;
-                }*/
-
-
 
                 if(array_key_exists('ErrorTable', $contents)){
 
@@ -70,15 +54,16 @@ class MainController extends Controller
                 }else{
 
                     $dadosHidro = $contents['DadosHidrometereologicos'];
+                    //dd($dadosHidro);
+                  
+                    if(array_key_first($dadosHidro) === 0){
 
-                    if(array_key_exists([0], $dadosHidro)){
-
-                        $niveis         = $dadosHidro['Nivel'][0];
-                        $dataHoraColeta = $dadosHidro['DataHora'][0];
+                        $niveis         = $dadosHidro[0]['Nivel'];
+                        $dataHoraColeta = $dadosHidro[0]['DataHora'];
                         if ($niveis == ""){
 
                         $niveis = "Nível indisponível";
-                        }    
+                        }
 
                     }else{
 
