@@ -33,45 +33,65 @@ class MainController extends Controller
         //Criando um objeto da classe Carbon para trabalhar com datas
         $carbon =  Carbon::now();              
 
-
         foreach ($hidro_stations as $hidro_station){            
 
             $idStation = $hidro_station->idStation;
 
              
-            $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => $idStation, 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
+            $results   = $client->call('DadosHidrometeorologicos', ['codEstacao' => "39433000", 'dataInicio' => $carbon->format('d/m/Y'), 'dataFim' => $carbon->format('d/m/Y'),]);
 
 
             foreach ($results as $result){              
 
-                $contents = $result ['diffgram'] ['DocumentElement']; 
+                $contents   = $result ['diffgram'] ['DocumentElement'];
+                          
+
+                /*if(array_key_exists(['DadosHidrometereologicos'][0];, $contents)){
+
+                    $niveis         = $dadosHidro['Nivel'];
+                    $dataHoraColeta = $dadosHidro['DataHora'];
+                    if ($niveis == ""){
+
+                        $niveis = "Nível indisponível";
+                    }    
+                }else{
+
+                    $niveis = "Problema na PCD";
+                    $dataHoraColeta = $carbon;
+                }*/
+
 
 
                 if(array_key_exists('ErrorTable', $contents)){
 
                         $niveis = "Problema na PCD";
+                        $dataHoraColeta = $carbon;
                         
                 }else{
 
-                    $niveis     = $contents ['DadosHidrometereologicos'] [0] ['Nivel'];
+                    $dadosHidro = $contents['DadosHidrometereologicos'];
 
-                    $dataHoraColeta = $contents ['DadosHidrometereologicos'] [0] ['DataHora'];
+                    if(array_key_exists([0], $dadosHidro)){
 
-                    
-                    if ($niveis == ""){
+                        $niveis         = $dadosHidro['Nivel'][0];
+                        $dataHoraColeta = $dadosHidro['DataHora'][0];
+                        if ($niveis == ""){
 
                         $niveis = "Nível indisponível";
-                    }
-                      
-                }
-                    
-            }
-                 
-            $dataHoraColeta = Carbon::parse($dataHoraColeta);
-            $dataColeta     = $dataHoraColeta->format('d/m/Y');
-            $horaColeta     = $dataHoraColeta->format('H:i');
+                        }    
 
-            //echo $dataColeta . "-". $horaColeta;
+                    }else{
+
+                        $niveis = "Problema na PCD";
+                        $dataHoraColeta = $carbon;
+                    }                                      
+                }
+            }
+
+            $dataHoraColetaSplit = Carbon::parse($dataHoraColeta);
+            $dataColeta          = $dataHoraColetaSplit->format('d/m/Y');
+            $horaColeta          = $dataHoraColetaSplit->format('H:i');
+
 
             $hidro_station->levelNow    = $niveis;
             $hidro_station->dataColeta  = $dataColeta;
@@ -79,9 +99,11 @@ class MainController extends Controller
             $hidro_station->save();
 
         }
+            
             return view('station.monitorStationV3', compact('hidro_stations'));
-        //return view('station.monitorStationV3');
 
+
+        
 
     }  
             
