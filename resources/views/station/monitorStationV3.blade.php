@@ -46,15 +46,43 @@
 			      <th class="TituloGrid">Nível <br> Inundação (cm) </th>
 			      <th class="TituloGrid">Gráfico</th>
 			    </tr>
-			      @foreach ($hidro_stations as $hidro_station) 
-			    <tr class="NivelNormal">
-			      <td class="gridDados">{{$hidro_station->nameStation}}</td>
-			      <td class="gridDados">{{$hidro_station->river}}</td>
-			      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 
-			      <td class="gridDados">{{$hidro_station->horaColeta}}</td>       
-			      <td class="gridDados colunaAtual">{{$hidro_station->levelNow}}</td>
-			      <td class="gridDados">{{$hidro_station->alertLevel}}</td>
-			      <td class="gridDados">{{$hidro_station->floodLevel}}</td>
+			      @foreach ($hidro_stations as $hidro_station)
+			       
+			       $nome 	   = $hidro_station->nameStation;
+			       $rio  	   = $hidro_station->river;
+			       $dataColeta = $hidro_station->dataColeta;
+			       $horaColeta = $hidro_station->horaColeta;
+			       $nivel	   = $hidro_station->levelNow;
+			       $alerta     = $hidro_station->alertLevel;
+			       $flood 	   = $hidro_station->floodLevel;
+
+			       
+			       @if($alerta-$nivel <= 50)
+
+			      	 	$nivelClass = "NivelPreAlerta"
+
+			       @elseif ($nivel >= $alerta and $nivel < flood)
+
+			       		$nivelClass = "NivelAlerta"
+
+			       @elseif ($nivel >= flood)
+
+			       		$nivelClass = "NivelInundacao"
+
+			       @else
+
+			       		$nivelClass = $NivelNormal;
+
+			   	   @endif
+
+			    <tr classe=$nivelClass >
+			      <td class="gridDados">{{$nome}}</td>
+			      <td class="gridDados">{{$rio}}</td>
+			      <td class="gridDados">{{$dataColeta}}</td> 
+			      <td class="gridDados">{{$horaColeta}}</td>       
+			      <td class="gridDados colunaAtual">{{$nivel}}</td>
+			      <td class="gridDados">{{$alerta}}</td>
+			      <td class="gridDados">{{$flood}}</td>
 			      <td class="gridDados">-</td>
 			    </tr>
 			      @endforeach
