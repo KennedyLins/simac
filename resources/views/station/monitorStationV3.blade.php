@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="{{asset('css/monitoramento-pluviometrosV3.css')}}" type="text/css">
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
 
-<!-- Código acima ok-->
 
 </head>
 
@@ -46,19 +45,18 @@
 			      <th class="TituloGrid">Nível <br> Inundação (cm) </th>
 			      <th class="TituloGrid">Gráfico</th>
 			    </tr>
-
-			      @foreach ($hidro_stations as $hidro_station)
-			       
-			    <tr classe=$nivelClass >
-			      <td class="gridDados">{{$hidro_station->nameStation}}</td>
-			      <td class="gridDados">{{$hidro_station->river}}</td>
-			      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 
-			      <td class="gridDados">{{$hidro_station->horaColeta}}</td>       
-			      <td class="gridDados colunaAtual">{{$hidro_station->levelNow}}</td>
-			      <td class="gridDados">{{$hidro_station->alertLevel}}</td>
-			      <td class="gridDados">{{$hidro_station->floodLevel}}</td>
-			      <td class="gridDados">-</td>
-			    </tr>
+					
+			      @foreach ($hidro_stations as $hidro_station)			       
+				    <tr id="linha">
+				      <td class="gridDados">{{$hidro_station->nameStation}}</td>
+				      <td class="gridDados">{{$hidro_station->river}}</td>
+				      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 
+				      <td class="gridDados">{{$hidro_station->horaColeta}}</td>       
+				      <td class="gridDados colunaAtual">{{$hidro_station->levelNow}}</td>
+				      <td class="gridDados">{{$hidro_station->alertLevel}}</td>
+				      <td class="gridDados">{{$hidro_station->floodLevel}}</td>
+				      <td class="gridDados" id="cor">-</td>
+				    </tr>
 			      @endforeach
 			  </tbody>
 			</table>
