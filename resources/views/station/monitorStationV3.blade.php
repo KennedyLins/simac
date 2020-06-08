@@ -17,7 +17,7 @@
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css>
 <link rel="stylesheet" href="{{asset('css/monitoramento-pluviometrosV3.css')}}" type="text/css">
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
-
+<script src="{{asset('js/change.js')}}"></script>
 
 </head>
 
@@ -31,7 +31,7 @@
 			<div class="row border titulo">
 			<h2>Monitoramento dos Rios do Estado de Pernambuco</h2>
 			</div>
-
+			
 			<div class="listaRios">
 			<table class="table table-sm" align="center">
 			  <tbody>
@@ -52,19 +52,18 @@
 				      <td class="gridDados">{{$hidro_station->river}}</td>
 				      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 
 				      <td class="gridDados">{{$hidro_station->horaColeta}}</td>       
-				      <td class="gridDados colunaAtual">{{$hidro_station->levelNow}}</td>
-				      <td class="gridDados">{{$hidro_station->alertLevel}}</td>
-				      <td class="gridDados">{{$hidro_station->floodLevel}}</td>
-				      <td class="gridDados" id="cor">-</td>
-				    </tr>
+				      <td class="gridDados colunaAtual" id="levelNow">{{$hidro_station->levelNow}}</td>
+				      <td class="gridDados" id="alertLevel">{{$hidro_station->alertLevel}}</td>
+				      <td class="gridDados" id="floodLevel">{{$hidro_station->floodLevel}}</td>
+							<td class="gridDados">-</td>							
+						</tr>
+						<script>colorRow()</script>														
 			      @endforeach
 			  </tbody>
 			</table>
 			</div>
-
 		</div>
-	</div>	
-	
+	</div>
 </body>
 
 </html>

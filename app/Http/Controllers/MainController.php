@@ -52,7 +52,7 @@ class MainController extends Controller
                 }else{
 
                     $dadosHidro = $contents['DadosHidrometereologicos'];
-                    //dd($dadosHidro);
+                    
                   
                     if(array_key_first($dadosHidro) === 0){
 
