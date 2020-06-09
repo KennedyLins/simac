@@ -17,8 +17,7 @@
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css>
 <link rel="stylesheet" href="{{asset('css/monitoramento-pluviometrosV3.css')}}" type="text/css">
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
-
-<!-- Código acima ok-->
+<script src="{{asset('js/change.js')}}"></script>
 
 </head>
 
@@ -32,7 +31,7 @@
 			<div class="row border titulo">
 			<h2>Monitoramento dos Rios do Estado de Pernambuco</h2>
 			</div>
-
+			
 			<div class="listaRios">
 			<table class="table table-sm" align="center">
 			  <tbody>
@@ -46,52 +45,25 @@
 			      <th class="TituloGrid">Nível <br> Inundação (cm) </th>
 			      <th class="TituloGrid">Gráfico</th>
 			    </tr>
-			      @foreach ($hidro_stations as $hidro_station)
-			       
-			       $nome 	   = $hidro_station->nameStation;
-			       $rio  	   = $hidro_station->river;
-			       $dataColeta = $hidro_station->dataColeta;
-			       $horaColeta = $hidro_station->horaColeta;
-			       $nivel	   = $hidro_station->levelNow;
-			       $alerta     = $hidro_station->alertLevel;
-			       $flood 	   = $hidro_station->floodLevel;
-
-			       
-			       @if($alerta-$nivel <= 50)
-
-			      	 	$nivelClass = "NivelPreAlerta"
-
-			       @elseif ($nivel >= $alerta and $nivel < flood)
-
-			       		$nivelClass = "NivelAlerta"
-
-			       @elseif ($nivel >= flood)
-
-			       		$nivelClass = "NivelInundacao"
-
-			       @else
-
-			       		$nivelClass = $NivelNormal;
-
-			   	   @endif
-
-			    <tr classe=$nivelClass >
-			      <td class="gridDados">{{$nome}}</td>
-			      <td class="gridDados">{{$rio}}</td>
-			      <td class="gridDados">{{$dataColeta}}</td> 
-			      <td class="gridDados">{{$horaColeta}}</td>       
-			      <td class="gridDados colunaAtual">{{$nivel}}</td>
-			      <td class="gridDados">{{$alerta}}</td>
-			      <td class="gridDados">{{$flood}}</td>
-			      <td class="gridDados">-</td>
-			    </tr>
+					
+			      @foreach ($hidro_stations as $hidro_station)			       
+				    <tr id="linha">
+				      <td class="gridDados">{{$hidro_station->nameStation}}</td>
+				      <td class="gridDados">{{$hidro_station->river}}</td>
+				      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 
+				      <td class="gridDados">{{$hidro_station->horaColeta}}</td>       
+				      <td class="gridDados colunaAtual" id="levelNow">{{$hidro_station->levelNow}}</td>
+				      <td class="gridDados" id="alertLevel">{{$hidro_station->alertLevel}}</td>
+				      <td class="gridDados" id="floodLevel">{{$hidro_station->floodLevel}}</td>
+							<td class="gridDados">-</td>							
+						</tr>
+						<script>colorRow()</script>														
 			      @endforeach
 			  </tbody>
 			</table>
 			</div>
-
 		</div>
-	</div>	
-	
+	</div>
 </body>
+
 </html>
