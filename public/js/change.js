@@ -1,3 +1,5 @@
+
+
 var getLine = document.querySelector("#linha");
 
 var levelNow = document.querySelector("#levelNow");
