@@ -1,39 +1,44 @@
 
+var getLine = document.querySelector(".linha");
+>>>>>>> 514f0a139ea41cc5f2b85bfe183d4e4a6167f819
 
-var getLine = document.querySelector("#linha");
-
-var levelNow = document.querySelector("#levelNow");
+var levelNow = document.querySelector(".levelNow");
 var levelNowContent = levelNow.textContent;
 
-var alertLevel = document.querySelector("#alertLevel");
+var alertLevel = document.querySelector(".alertLevel");
 var alertLevelContent = alertLevel.textContent;
 
-var floodLevel = document.querySelector("#floodLevel");
+var floodLevel = document.querySelector(".floodLevel");
 var floodLevelContent = floodLevel.textContent;
 
 function colorRow() {
+    var color = "";
     if (
         levelNowContent === "Problema na PCD" ||
         levelNowContent === "Nível indisponível"
     ) {
-        var color = "NivelNormal";
+        color = "Problema"; //NivelNormal
     } else {
         if (
             alertLevelContent - levelNowContent <= 500 &&
             alertLevelContent - levelNowContent > 0
         ) {
-            var color = "NivelPreAlerta";
+            color = "NivelPreAlerta";
         } else if (
             levelNowContent >= alertLevelContent &&
             levelNowContent < floodLevelContent
         ) {
-            var color = "NivelAlerta";
+            color = "NivelAlerta";
         } else if (levelNowContent >= floodLevelContent) {
-            var color = "NivelInundacao";
+            color = "NivelInundacao";
         } else {
-            var color = "NivelNormal";
+            color = "NivelNormal";
         }
     }
-
-    return getLine.classList.add(color);
+    return console.log(color);
 }
+
+//getLine.classList.add(color);
+
+//return getLine.classList.add(color);
+//}

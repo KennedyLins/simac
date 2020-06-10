@@ -17,7 +17,6 @@
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css>
 <link rel="stylesheet" href="{{asset('css/monitoramento-pluviometrosV3.css')}}" type="text/css">
 <link rel="stylesheet" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
-<script src="{{asset('js/change.js')}}"></script>
 
 </head>
 
@@ -36,6 +35,7 @@
 			<table class="table table-sm" align="center">
 			  <tbody>
 			    <tr>
+					<th class="TituloGrid">Estação</th>
 			      <th class="TituloGrid">Local</th>
 			      <th class="TituloGrid">Rio</th>
 			      <th class="TituloGrid">Data <br> (Último dado)</th>
@@ -47,17 +47,19 @@
 			    </tr>
 					
 			      @foreach ($hidro_stations as $hidro_station)			       
-				    <tr id="linha">
+				    <tr class="linha">
+							<td class="gridDados">{{$hidro_station->idStation}}</td>
 				      <td class="gridDados">{{$hidro_station->nameStation}}</td>
 				      <td class="gridDados">{{$hidro_station->river}}</td>
 				      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 
 				      <td class="gridDados">{{$hidro_station->horaColeta}}</td>       
-				      <td class="gridDados colunaAtual" id="levelNow">{{$hidro_station->levelNow}}</td>
-				      <td class="gridDados" id="alertLevel">{{$hidro_station->alertLevel}}</td>
-				      <td class="gridDados" id="floodLevel">{{$hidro_station->floodLevel}}</td>
+				      <td class="gridDados colunaAtual levelNow">{{$hidro_station->levelNow}}</td>
+				      <td class="gridDados alertLevel">{{$hidro_station->alertLevel}}</td>
+				      <td class="gridDados floodLevel">{{$hidro_station->floodLevel}}</td>
 							<td class="gridDados">-</td>							
 						</tr>
-						<script>colorRow()</script>														
+						<script src="{{asset('js/change.js')}}"></script>
+						<script>colorRow()</script>											
 			      @endforeach
 			  </tbody>
 			</table>
