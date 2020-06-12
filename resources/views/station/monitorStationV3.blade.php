@@ -35,7 +35,6 @@
 			<table class="table table-sm" align="center">
 			  <tbody>
 			    <tr>
-					<th class="TituloGrid">Estação</th>
 			      <th class="TituloGrid">Local</th>
 			      <th class="TituloGrid">Rio</th>
 			      <th class="TituloGrid">Data <br> (Último dado)</th>
@@ -48,7 +47,6 @@
 					
 			      @foreach ($hidro_stations as $hidro_station)			       
 				    <tr class="linha">
-							<td class="gridDados">{{$hidro_station->idStation}}</td>
 				      <td class="gridDados">{{$hidro_station->nameStation}}</td>
 				      <td class="gridDados">{{$hidro_station->river}}</td>
 				      <td class="gridDados">{{$hidro_station->dataColeta}}</td> 

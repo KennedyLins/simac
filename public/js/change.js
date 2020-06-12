@@ -1,6 +1,5 @@
 
 var getLine = document.querySelector(".linha");
->>>>>>> 514f0a139ea41cc5f2b85bfe183d4e4a6167f819
 
 var levelNow = document.querySelector(".levelNow");
 var levelNowContent = levelNow.textContent;
