@@ -1,6 +1,5 @@
 
 var getLine = document.querySelector(".linha");
-
 var levelNow = document.querySelector(".levelNow");
 var levelNowContent = levelNow.textContent;
 
@@ -9,6 +8,10 @@ var alertLevelContent = alertLevel.textContent;
 
 var floodLevel = document.querySelector(".floodLevel");
 var floodLevelContent = floodLevel.textContent;
+
+
+var dadosArray = $hidro_stations;
+dadosArray.forEach(colorRow);
 
 function colorRow() {
     var color = "";

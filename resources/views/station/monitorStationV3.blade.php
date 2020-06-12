@@ -55,10 +55,9 @@
 				      <td class="gridDados alertLevel">{{$hidro_station->alertLevel}}</td>
 				      <td class="gridDados floodLevel">{{$hidro_station->floodLevel}}</td>
 							<td class="gridDados">-</td>							
-						</tr>
-						<script src="{{asset('js/change.js')}}"></script>
-						<script>colorRow()</script>											
+						</tr>										
 			      @endforeach
+						<script src="{{asset('js/change.js')}}">colorRow($hidro_stations)</script>
 			  </tbody>
 			</table>
 			</div>
