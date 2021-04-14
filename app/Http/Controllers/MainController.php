@@ -18,7 +18,7 @@ class MainController extends Controller
     public function index()
     {       
 
-        //Criando um objeto da classe HidroStation
+       //Criando um objeto da classe HidroStation
         $hidro_stations = new HidroStation;
         $hidro_stations = $hidro_stations::all();
         
@@ -46,7 +46,7 @@ class MainController extends Controller
 
                 if(array_key_exists('ErrorTable', $contents)){
 
-                        $niveis = "Problema na PCD";
+                        $niveis = "PCD EM MANUTENÇÃO";
                         $dataHoraColeta = $carbon;
                         
                 }else{
@@ -60,12 +60,12 @@ class MainController extends Controller
                         $dataHoraColeta = $dadosHidro[0]['DataHora'];
                         if ($niveis == ""){
 
-                        $niveis = "Nível indisponível";
+                        $niveis = "Dado não coletado na última atualização";
                         }
 
                     }else{
 
-                        $niveis = "Problema na PCD";
+                        $niveis = "PCD EM MANUTENÇÃO";
                         $dataHoraColeta = $carbon;
                     }                                      
                 }
@@ -84,9 +84,9 @@ class MainController extends Controller
         }
             
             return view('station.monitorStationV3', compact('hidro_stations'));
+            
 
-
-        
+             
 
     }  
             

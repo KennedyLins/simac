@@ -10,10 +10,10 @@ var floodLevel = document.querySelector(".floodLevel");
 var floodLevelContent = floodLevel.textContent;
 
 
-var dadosArray = $hidro_stations;
-dadosArray.forEach(colorRow);
 
-function colorRow() {
+function colorRow($hidro_stations) {
+    
+
     var color = "";
     if (
         levelNowContent === "Problema na PCD" ||
@@ -37,10 +37,7 @@ function colorRow() {
             color = "NivelNormal";
         }
     }
+
     return console.log(color);
 }
 
-//getLine.classList.add(color);
-
-//return getLine.classList.add(color);
-//}

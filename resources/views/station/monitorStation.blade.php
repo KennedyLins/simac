@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="row border titulo">
-			<h2>Monitoramento dos Rios do Estado de Pernambuco</h2>
+			<h2>Monitoramento dos Rios do Estado de Pernambuco 2021</h2>
 			</div>
 			
 			<div class="listaRios">
